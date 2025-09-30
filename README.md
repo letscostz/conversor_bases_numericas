@@ -1,2 +1,2 @@
-# Conversor-de-Sistemas-de-Numera-o
+# Conversor-de-Bases-Numericas
 Minha primeira versão do conversor de sistemas de numeração. 
