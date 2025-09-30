@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Sistemas de Numeração</title>
+
+    <style>
+
+        body {
+            background-color: #FFCCEE;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .titulo {
+            color: #800000;
+        }
+
+        .subtitulo {
+            color: #B10026;
+        }
+
+        .button {
+            background-color: #E05490;
+            color: #ffffff;
+        }
+
+        .mensagem {
+            color: #B10026;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="titulo">
+        <h1>Conversor de Bases Numéricas</h1>
+    </div>
+
+        <br><br>
+        
+        <div class="subtitulo">
+            Insira um Número em Decimal: <input id="input_decimal" type="number" placeholder="EX: 175">
+        </div>
+
+        <br>
+
+        <button class="button" onclick="decimal()">Converter</button>
+
+        <br>
+
+        <div class="mensagem" id="mensagem_decimal"></div>
+
+        <br><br>
+
+        <div class="subtitulo">
+            Insira um Número em Binário: <input id="input_binário" type="number" placeholder="EX: 10101111">
+        </div>
+
+        <br>
+
+        <button class="button" onclick="binario()">Converter</button>
+
+        <br>
+
+        <div class="mensagem" id="mensagem_binário"></div>
+
+        <br><br>
+
+        <div class="subtitulo">
+            Insira um Número em Octal: <input id="input_octal" type="number" placeholder="EX: 257">
+        </div>
+
+        <br>
+
+        <button class="button" onclick="octal()">Converter</button>
+
+        <br>
+
+        <div class="mensagem" id="mensagem_octal"></div>
+
+        <br><br>
+
+        <div class="subtitulo">
+            Insira um Número em Hexadecimal: <input id="input_hexadecimal" type="text" placeholder="EX: AF">
+        </div>
+
+        <br>
+
+        <button class="button" onclick="hexadecimal()">Converter</button>
+
+        <br>
+        
+        <div class="mensagem" id="mensagem_hexadecimal"></div>
+
+    
+
+</body>
+</html>
+
+<script>
+
+    function decimal() {
+
+        var decimal = Number(input_decimal.value);
+
+        if (decimal < 0) {
+            alert("Verifique-se de inserir um número válido!");
+
+        } else {
+            var hexadecimal = decimal.toString(16);
+        
+        mensagem_decimal.innerHTML = `
+        O número ${decimal} na base binária: ${decimal.toString(2)}<br>
+        O número ${decimal} na base octal: ${decimal.toString(8)} <br>
+        O número ${decimal} na base hexadecimal: ${hexadecimal.toUpperCase()}
+        `;
+
+        }
+
+    }
+
+    function binario() {
+
+        var binario = input_binário.value;
+        var base2 = parseInt(binario, 2);
+        var hexadecimal = base2.toString(16);
+
+        if (!/^[01]+$/.test(binario)) {
+            alert("Verifique-se de inserir somente algarismos 0 ou 1!");
+
+        } else {
+        mensagem_binário.innerHTML = `
+        O número ${binario} na base decimal: ${base2.toString(10)}<br>
+        O número ${binario} na base octal: ${base2.toString(8)} <br>
+        O número ${binario} na base hexadecimal: ${hexadecimal.toUpperCase()}
+        `;
+
+
+        }
+    }
+
+    function octal() {
+
+        var octal = input_octal.value;
+        var base8 = parseInt(octal, 8);
+        var hexadecimal = base8.toString(16);
+
+        if (!/^[0-7]+$/.test(octal)) {
+            alert("Verifique-se de inserir somente algarismos de 0 a 7!");
+
+        } else {
+        mensagem_octal.innerHTML = `
+        O número ${octal} na base decimal: ${base8.toString(10)}<br>
+        O número ${octal} na base binária: ${base8.toString(2)} <br>
+        O número ${octal} na base hexadecimal: ${hexadecimal.toUpperCase()}
+        `;
+
+        }
+    }
+
+    function hexadecimal() {
+
+        var hexadecimal = input_hexadecimal.value.toUpperCase();
+        var base16 = parseInt(hexadecimal, 16);
+
+        if (!/^[0-9A-F]+$/.test(hexadecimal)) {
+            alert("Verifique-se de inserir um número em hexadecimal válido!");
+            
+        } else {
+        mensagem_hexadecimal.innerHTML = `
+        O número ${hexadecimal} na base decimal: ${base16.toString(10)}<br>
+        O número ${hexadecimal} na base binária: ${base16.toString(2)} <br>
+        O número ${hexadecimal} na base octal: ${base16.toString(8)}
+        `;
+        }
+    }
+
+</script>
