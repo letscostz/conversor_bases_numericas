@@ -1,2 +1,2 @@
 # Conversor de Bases Numéricas
-Minha primeira versão do conversor de sistemas de numeração. 
+Programa responsável por converter números das principais bases numéricas: binário, octal, decimal e hexadecimal!
